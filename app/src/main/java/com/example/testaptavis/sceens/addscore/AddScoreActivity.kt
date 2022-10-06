@@ -70,7 +70,7 @@ class AddScoreActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
     private fun checkFormAddScore() {
         val goal1 = binding.edtKlubPertama.text.toString()
         val goal2 = binding.edtKlubKedua.text.toString()
-        viewModel.addScore(team1!!, team2!!, goal1.toInt(), goal2.toInt())
+        viewModel.addScore(this.team1!!, this.team2!!, goal1.toInt(), goal2.toInt())
     }
 
 }

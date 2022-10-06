@@ -10,7 +10,7 @@ import com.example.testaptavis.model.TeamModel
 
 class KlasementAdapter(
     private var list: List<TeamModel>
-): RecyclerView.Adapter<KlasementAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<KlasementAdapter.ViewHolder>() {
 
     fun setData(list: List<TeamModel>) {
         this.list = list
@@ -18,24 +18,51 @@ class KlasementAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_klasement, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_klasement, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binData(list[position])
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemKlasementBinding.bind(itemView)
 
         fun binData(data: TeamModel) {
             binding.run {
                 txtNameKlub.text = data.name
-                txtMatch.text = data.match.toString()
-                txtWin.text = data.win.toString()
-                txtDraw.text = data.draw.toString()
-                txtLose.text = data.lose.toString()
-                txtPoint.text = data.point.toString()
+
+                val match = data.match.toString()
+                if (match == "null") {
+                    txtMatch.text = "-"
+                } else txtMatch.text = match
+
+
+                val win = data.win.toString()
+                if (win == "null") {
+                    txtWin.text = "-"
+                } else txtWin.text = win
+
+
+                val draw = data.draw.toString()
+                if (draw == "null") {
+                    txtDraw.text = "-"
+                } else txtDraw.text = draw
+
+
+                val lose = data.lose.toString()
+                if (lose == "null") {
+                    txtLose.text = "-"
+                } else txtLose.text = lose
+
+
+                val point = data.point.toString()
+                if (point == "null") {
+                    txtPoint.text = "-"
+                } else txtPoint.text = point
+
             }
         }
     }

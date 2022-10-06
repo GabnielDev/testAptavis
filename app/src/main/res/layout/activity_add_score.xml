@@ -60,11 +60,15 @@
         app:layout_constraintStart_toEndOf="@id/edtKlubPertama"
         app:layout_constraintTop_toBottomOf="@id/layoutTeam" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Score"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:background="@drawable/background_btnblue"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/edtKlubKedua"/>
 
